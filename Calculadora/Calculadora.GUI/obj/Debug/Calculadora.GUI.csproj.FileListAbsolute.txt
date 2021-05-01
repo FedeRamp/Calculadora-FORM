@@ -1,0 +1,10 @@
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\bin\Debug\Calculadora.GUI.exe.config
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\bin\Debug\Calculadora.GUI.exe
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\bin\Debug\Calculadora.GUI.pdb
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\obj\Debug\Calculadora.GUI.csprojAssemblyReference.cache
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\obj\Debug\Calculadora.GUI.Form1.resources
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\obj\Debug\Calculadora.GUI.Properties.Resources.resources
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\obj\Debug\Calculadora.GUI.csproj.GenerateResource.cache
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\obj\Debug\Calculadora.GUI.csproj.CoreCompileInputs.cache
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\obj\Debug\Calculadora.GUI.exe
+C:\Users\Fede\Documents\GitHub\Calculadora-FORM\Calculadora\Calculadora.GUI\obj\Debug\Calculadora.GUI.pdb
