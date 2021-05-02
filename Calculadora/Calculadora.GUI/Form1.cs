@@ -146,7 +146,6 @@ namespace Calculadora.GUI
             try
             {
                 AddOperacion(this.txtInput.Text, '-');
-
             }
             catch (Exception ex)
             {
@@ -325,7 +324,7 @@ namespace Calculadora.GUI
                 case '=':
                     mostrarResultado();
                     break;
-                case (char)13:
+                case (char)Keys.Return:
                     this.Focus();
                     mostrarResultado();
                     break;
