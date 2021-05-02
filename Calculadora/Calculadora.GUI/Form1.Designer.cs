@@ -233,6 +233,7 @@ namespace Calculadora.GUI
             this.txtInput.Size = new System.Drawing.Size(270, 26);
             this.txtInput.TabIndex = 18;
             this.txtInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInput_KeyPress);
             // 
             // cuentaActual
             // 
@@ -269,7 +270,6 @@ namespace Calculadora.GUI
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.ResumeLayout(false);
             this.PerformLayout();
 

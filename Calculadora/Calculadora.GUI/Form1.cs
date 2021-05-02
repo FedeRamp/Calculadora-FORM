@@ -13,12 +13,12 @@ namespace Calculadora.GUI
 {
     public partial class Form1 : Form
     {
+        private bool mostrandoResultado;
         private List<Double> numeros;
         private List<Char> signos;
-        private string inputActual;
         public Form1()
         {
-            inputActual = "";
+            mostrandoResultado = false;
             numeros = new List<double>();
             signos = new List<char>();
             InitializeComponent();
@@ -33,52 +33,52 @@ namespace Calculadora.GUI
 
         private void num1()
         {
-            inputActual += "1";
+            this.txtInput.Text += "1";
             UpdateTextBox();
         }
         private void num2()
         {
-            inputActual += "2";
+            this.txtInput.Text += "2";
             UpdateTextBox();
         }
         private void num3()
         {
-            inputActual += "3";
+            this.txtInput.Text += "3";
             UpdateTextBox();
         }
         private void num4()
         {
-            inputActual += "4";
+            this.txtInput.Text += "4";
             UpdateTextBox();
         }
         private void num5()
         {
-            inputActual += "5";
+            this.txtInput.Text += "5";
             UpdateTextBox();
         }
         private void num6()
         {
-            inputActual += "6";
+            this.txtInput.Text += "6";
             UpdateTextBox();
         }
         private void num7()
         {
-            inputActual += "7";
+            this.txtInput.Text += "7";
             UpdateTextBox();
         }
         private void num8()
         {
-            inputActual += "8";
+            this.txtInput.Text += "8";
             UpdateTextBox();
         }
         private void num9()
         {
-            inputActual += "9";
+            this.txtInput.Text += "9";
             UpdateTextBox();
         }
         private void num0()
         {
-            inputActual += "0";
+            this.txtInput.Text += "0";
             UpdateTextBox();
         }
 
@@ -86,7 +86,7 @@ namespace Calculadora.GUI
         {
             this.numeros.Clear();
             this.signos.Clear();
-            this.inputActual = "";
+            this.txtInput.Text = "";
             this.txtInput.Text = "";
             this.cuentaActual.Text = "";
         }
@@ -95,7 +95,7 @@ namespace Calculadora.GUI
         {
             try
             {
-                AddNumero(inputActual);
+                AddNumero(this.txtInput.Text);
                 double resultado = numeros[0];
                 for (int i = 0; i < signos.Count; i++)
                 {
@@ -119,9 +119,10 @@ namespace Calculadora.GUI
                 }
                 this.numeros.Clear();
                 this.signos.Clear();
-                this.inputActual = "";
+                this.txtInput.Text = "";
                 this.cuentaActual.Text = "";
                 this.txtInput.Text = $"Resultado = {resultado}";
+                this.mostrandoResultado = true;
             } catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -132,7 +133,7 @@ namespace Calculadora.GUI
         {
             try
             {
-                AddOperacion(this.inputActual, '/');
+                AddOperacion(this.txtInput.Text, '/');
 
             }
             catch (Exception ex)
@@ -144,7 +145,7 @@ namespace Calculadora.GUI
         {
             try
             {
-                AddOperacion(this.inputActual, '-');
+                AddOperacion(this.txtInput.Text, '-');
 
             }
             catch (Exception ex)
@@ -156,7 +157,7 @@ namespace Calculadora.GUI
         {
             try
             {
-                AddOperacion(this.inputActual, 'x');
+                AddOperacion(this.txtInput.Text, 'x');
 
             }
             catch (Exception ex)
@@ -168,7 +169,7 @@ namespace Calculadora.GUI
         {
             try
             {
-                AddOperacion(this.inputActual, '+');
+                AddOperacion(this.txtInput.Text, '+');
 
             }
             catch (Exception ex)
@@ -184,7 +185,7 @@ namespace Calculadora.GUI
                 double num = double.Parse(numero);
                 this.numeros.Add(num);
                 this.signos.Add(signo);
-                this.inputActual = "";
+                this.txtInput.Text = "";
                 UpdateTextBox();
                 this.cuentaActual.Text += $"{numero} {signo} ";
             }
@@ -210,7 +211,7 @@ namespace Calculadora.GUI
 
         private void UpdateTextBox()
         {
-            this.txtInput.Text = this.inputActual;
+            this.txtInput.Text = this.txtInput.Text;
         }
 
 
@@ -296,10 +297,14 @@ namespace Calculadora.GUI
         }
 
 
-
-
-        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtInput_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (mostrandoResultado)
+            {
+                this.txtInput.Text = "";
+                this.mostrandoResultado = false;
+            }
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
             switch (e.KeyChar)
             {
                 case '/':
@@ -308,46 +313,20 @@ namespace Calculadora.GUI
                 case 'x':
                     btnMult();
                     break;
+                case '*':
+                    btnMult();
+                    break;
                 case '+':
                     btnSum();
                     break;
                 case '-':
                     btnRest();
                     break;
-                case '1':
-                    num1();
-                    break;
-                case '2':
-                    num2();
-                    break;
-                case '3':
-                    num3();
-                    break;
-                case '4':
-                    num4();
-                    break;
-                case '5':
-                    num5();
-                    break;
-                case '6':
-                    num6();
-                    break;
-                case '7':
-                    num7();
-                    break;
-                case '8':
-                    num8();
-                    break;
-                case '9':
-                    num9();
-                    break;
-                case '0':
-                    num0();
-                    break;
                 case '=':
                     mostrarResultado();
                     break;
                 case (char)13:
+                    this.Focus();
                     mostrarResultado();
                     break;
                 default:
